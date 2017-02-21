@@ -2,6 +2,7 @@ package com.kaikeba.dao;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -31,7 +32,7 @@ public class MybatisFirst {
 		
 		User user = null;
 		try {
-			user = sqlSession.selectOne("test.findUserById", 2);
+			user = sqlSession.selectOne("test.findUserById", 1);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -40,6 +41,24 @@ public class MybatisFirst {
 		}
 
 		System.out.println(user);
+	}
+	
+	@Test
+	public void testFindUsers() {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		List<User> users = null;
+		try {
+			users = sqlSession.selectList("test.findUserByName", "小明");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// 关闭sqlSession
+			sqlSession.close();
+		}
+		for (User user : users) {
+			System.out.println(user.getUsername());
+		}
 	}
 	
 }
