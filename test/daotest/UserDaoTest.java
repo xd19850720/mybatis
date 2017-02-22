@@ -93,7 +93,8 @@ private SqlSessionFactory sqlSessionFactory;
 		SqlSession session = sqlSessionFactory.openSession();
 		UserMapper userMapper = session.getMapper(UserMapper.class);
 		User user = new User();
-		int count = userMapper.findUserCount(user);
+		user.setUsername("小明");
+		int count = userMapper.findUserCount(null);
 		session.close();
 		System.out.println(count);	
 	}

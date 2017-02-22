@@ -1,3 +1,7 @@
-/daotest
-/mapper
+/SqlMapConfig.xml
 /com
+/daotest
+/db.properties
+/log4j.properties
+/mapper
+/sqlmap
