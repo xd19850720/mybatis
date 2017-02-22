@@ -17,7 +17,7 @@ mapper.xml以statement为单位管理sql语句
 		parameterType：输入 参数的类型，通过#{}接收parameterType输入 的参数
 		resultType：输出结果类型，不管返回是多条还是单条，指定单条记录映射的pojo类型
 	 -->
-	<select id="findUserById" parameterType="int" resultType="com.kaikeba.bean.User">
+	<select id="findUserById" parameterType="int" resultType="user">
 		SELECT * FROM USER WHERE id= #{id}
 	</select>
 	
