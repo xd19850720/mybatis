@@ -35,8 +35,13 @@ mapper.xml以statement为单位管理sql语句
 	    update user set username=#{username},birthday=#{birthday},sex=#{sex},address=#{address} where id=#{id}
 	</update>
 	
-	<select id="findUserCount" parameterType="java.lang.String" resultType="int">
-		SELECT count(*) FROM USER WHERE username like '%${value}%'
+	<select id="findUserCount" parameterType="user" resultType="int">
+		SELECT count(*) FROM USER
+		<where>
+		   <if test="user!=null">
+		      and 1=1
+		   </if>
+		</where>
 	</select>
 	
 </mapper>

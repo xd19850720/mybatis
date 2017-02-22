@@ -92,7 +92,9 @@ private SqlSessionFactory sqlSessionFactory;
 	public void testFindUserCount() throws Exception {
 		SqlSession session = sqlSessionFactory.openSession();
 		UserMapper userMapper = session.getMapper(UserMapper.class);
-		int count = userMapper.findUserCount("小明");
+		User user = new User();
+		int count = userMapper.findUserCount(user);
+		session.close();
 		System.out.println(count);	
 	}
 }

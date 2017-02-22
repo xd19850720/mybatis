@@ -15,5 +15,5 @@ public interface UserMapper {
 	public void insertUser(User user) throws Exception;
 	
 	public void updateUserById(User user) throws Exception;
-	public int findUserCount(String user) throws Exception;
+	public int findUserCount(User user) throws Exception;
 }
