@@ -24,5 +24,15 @@ mapper.xml以statement为单位管理sql语句
 	<select id="findUserByName" parameterType="java.lang.String" resultType="com.kaikeba.bean.User">
 		select * from user where username like '%${value}%'
 	</select>
+	
+	<insert id="insertUser" parameterType="com.kaikeba.bean.User">
+	  insert into user(id,username,birthday,sex,address) values(#{id},#{username},#{birthday},#{sex},#{address})
+	</insert>
+	<delete id="deleteUserById" parameterType="int">
+	   delete from user where id=#{id}
+	</delete>
+	<update id="updateUserById" parameterType="com.kaikeba.bean.User">
+	    update user set username=#{username},birthday=#{birthday},sex=#{sex},address=#{address} where id=#{id}
+	</update>
 </mapper>
 
